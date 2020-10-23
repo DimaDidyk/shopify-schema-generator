@@ -1,0 +1,46 @@
+.container{
+  width: 1200px;
+  max-width: 100%;
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-bottom: 50px;
+
+  .col{
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+  .col-3{
+    width: 33.333%;
+  }
+}
+
+.field-item-wrap{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.field-item{
+  width: 200px;
+  text-align: center;
+  padding: 10px 20px;
+  border: 1px solid;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.SelectedFields>div{
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 5px;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: dashed;
+  width: 220px;
+}

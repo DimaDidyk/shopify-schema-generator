@@ -1,0 +1,21 @@
+export const allFields = [
+    'text',
+    'textarea',
+    'image_picker',
+    'radio',
+    'select',
+    'checkbox',
+    'range',
+    'color',
+    'font_picker',
+    'collection',
+    'product',
+    'blog',
+    'page',
+    'link_list',
+    'url',
+    'video_url',
+    'richtext',
+    'html',
+    'article'
+];

@@ -1,0 +1,18 @@
+/**
+    Colors
+ */
+$color1: #5f9ea0;
+$color2: #4a4a4a;
+$background1: #eee;
+
+body{
+  font-family: 'Roboto', sans-serif;
+  background: $background1;
+  color: $color2;
+}
+
+
+.heading{
+  color: $color1;
+  cursor: default;
+}
