@@ -18,6 +18,10 @@
   }
 }
 
+.all-field-list{
+  display: flex;
+  flex-direction: column;
+}
 .field-item-wrap{
   padding-top: 5px;
   padding-bottom: 5px;
@@ -31,8 +35,14 @@
   font-size: 20px;
   cursor: pointer;
   box-sizing: border-box;
+  p{
+    border: 2px solid;
+    margin-bottom: 20px;
+  }
 }
-
+.field-settings{
+  //display: none;
+}
 .SelectedFields>div{
   min-height: 300px;
   display: flex;

@@ -16,3 +16,14 @@ body{
   color: $color1;
   cursor: default;
 }
+
+input{
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 5px 8px;
+  border: 1px solid;
+  margin-top: 10px;
+}
+input::placeholder{
+  opacity: .4;
+}

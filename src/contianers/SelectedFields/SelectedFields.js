@@ -1,6 +1,6 @@
 import React from 'react';
-import {Draggable, Droppable} from 'react-beautiful-dnd';
-import Field from '../FieldsList/Field';
+import SelectedFieldTemplate from './SelectedFieldTemplate';
+import {connect} from 'react-redux';
 
 function SelectedFields(props) {
     return (
@@ -8,30 +8,18 @@ function SelectedFields(props) {
             <h3 className="heading">Selected Fields</h3>
 
             <div className="SelectedFields">
-                <Droppable
-                    droppableId="droppableSelectedFields">
-                    {(provided) => (
-                        <div ref={provided.innerRef}>
-                            { props.selectedFields && props.selectedFields.map( (field, index) => (
-                                <Draggable key={index}
-                                           draggableId={`droppableSelectedFields-${index}`}
-                                           index={index} >
-                                    { (provided) => (
-                                        <div ref={provided.innerRef}
-                                             {...provided.draggableProps}
-                                             {...provided.dragHandleProps}>
-                                            <Field field={field}  />
-                                        </div>
-                                    ) }
-                                </Draggable>
-                            ))}
-                            {provided.placeholder}
-                        </div>
-                    )}
-                </Droppable>
+                { props.selectedFields && props.selectedFields.map( (field, index) => (
+                    <SelectedFieldTemplate key={index} field={field}  />
+                ))}
             </div>
         </div>
     );
 }
 
-export default SelectedFields;
+const mapStateToProps = state => {
+    return{
+        selectedFields: state.fields.selectedFields
+    }
+}
+
+export default connect(mapStateToProps)(SelectedFields);

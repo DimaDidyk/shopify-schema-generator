@@ -1,13 +1,20 @@
+import Setting from './Setting';
+
 /**
  *  Field
- *  @interface
  */
 export default class Field{
 
-    constructor(id, label) {
-        this.type = "type";
-        this.id = id;
-        this.label = label;
+    constructor(type) {
+        this.type = type;
+        this.settings = [
+            new Setting('id', 'text', true),
+            new Setting('label', 'text', true),
+            new Setting('default', 'text'),
+            new Setting('info', 'text'),
+            new Setting('placeholder', 'text')
+        ];
+        this.additionalSettings = [];
     }
 
     /**
