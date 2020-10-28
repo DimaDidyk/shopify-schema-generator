@@ -8,11 +8,11 @@ export default class Setting{
      * @param type {string}
      * @param required {boolean}
      */
-    constructor(name, type = 'text', required = false) {
+    constructor(name, type = 'text', required = false, value = "") {
         this.name = name;
         this.type = type;
         this.required = required;
-        this.value = "";
+        this.value = value;
     }
 
     /**
@@ -31,6 +31,4 @@ export default class Setting{
     getValue(){
         return this.value;
     }
-
-
 }

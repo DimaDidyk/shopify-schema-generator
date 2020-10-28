@@ -8,8 +8,10 @@ function FieldsList(props) {
             <h3 className="heading">Fields</h3>
             <div className="all-field-list">
                 { props.allFields && props.allFields.map( (field, index) => (
-                    <div key={index}>
-                        <Field field={field} onClick={props.addField()}/>
+                    <div
+                        key={index}
+                        onClick={ () => props.addField(field) }>
+                        <Field field={field}/>
                     </div>
                 ))}
             </div>
@@ -23,12 +25,10 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-    console.log(ownProps);
+const mapDispatchToProps = (dispatch) => {
     return {
-        addField: () => dispatch({type: 'ADD_FIELD'})
+        addField: (fieldHandle) => dispatch({type: 'ADD_FIELD', fieldHandle})
     }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(FieldsList);
