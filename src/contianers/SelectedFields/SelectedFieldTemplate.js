@@ -16,7 +16,9 @@ function SelectedFieldTemplate(props){
     return(
         <div className="field-item-wrap">
             <div className="field-item shadow">
-                <div className="remove" onClick={ () => props.removeField(props.fieldIndex) }>remove</div>
+                <div className="remove" onClick={ () => {
+                    props.removeField(props.fieldIndex);
+                }}>remove</div>
                 <p onClick={onToggleSettings}>{props.field.type}</p>
                 <div className="field-settings" ref={settingsRef} style={{display: 'none'}}>
                     { props.field.settings && props.field.settings.map( (setting, index) => {
@@ -30,7 +32,6 @@ function SelectedFieldTemplate(props){
                                     required={setting.required}
                                     onChange={ event => {
                                         props.updateSettingValue(event.target.value, index, props.fieldIndex);
-                                        props.updateSchema();
                                     }}
                                     defaultValue={setting.value}
                                     placeholder={setting.name}/>
@@ -46,7 +47,6 @@ function SelectedFieldTemplate(props){
 const mapDispatchToProps = dispatch => {
     return {
         removeField: (fieldIndex) => dispatch({type: 'REMOVE_FIELD', fieldIndex}),
-        updateSchema: () => dispatch({type: 'UPDATE_SCHEMA'}),
         updateSettingValue: (value, index, fieldIndex) => dispatch({type: 'UPDATE_SETTING_VALUE', value, index, fieldIndex})
     }
 }
