@@ -1,12 +1,12 @@
 .container{
   width: 1200px;
   max-width: 100%;
+  max-height: 100vh;
   display: flex;
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;
   box-sizing: border-box;
-  padding-bottom: 50px;
 
   .col{
     padding-left: 15px;
@@ -15,13 +15,27 @@
   }
 
   .fields-list {
-    width: 250px;
+    width: 240px;
+    .FieldsList{
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      .all-field-list{
+        flex: auto;
+        overflow-y: auto;
+        padding-bottom: 30px;
+      }
+    }
   }
   .selected-fields{
     width: 400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
   }
   .generated-schema{
     flex: auto;
+    padding-bottom: 30px;
   }
 }
 

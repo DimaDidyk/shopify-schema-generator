@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectedFieldTemplate from './SelectedFieldTemplate';
 import {connect} from 'react-redux';
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
 
 function SelectedFields(props) {
     const onDragEnd = (data) => {
@@ -13,35 +13,12 @@ function SelectedFields(props) {
         <div className="SelectedFieldsContainer">
             <h3 className="heading">Selected Fields</h3>
             <div className="SelectedFields">
-
-                <DragDropContext onDragEnd={onDragEnd}>
-                    <Droppable droppableId="droppable">
-                        {(provided, snapshot) => (
-                            <div
-                                {...provided.droppableProps}
-                                ref={provided.innerRef}>
-                                { props.selectedFields && props.selectedFields.map( (field, index) => (
-                                    <Draggable key={index} draggableId={String(index)} index={index}>
-                                        {(provided, snapshot) => (
-                                            <div
-                                                ref={provided.innerRef}
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}>
-                                                <div key={index}>
-                                                    <SelectedFieldTemplate
-                                                        key={index}
-                                                        field={field}
-                                                        fieldIndex={index}/>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </Draggable>
-                                ))}
-                                {provided.placeholder}
-                            </div>
-                        )}
-                    </Droppable>
-                </DragDropContext>
+                { props.selectedFields && props.selectedFields.map( (field, index) => (
+                    <SelectedFieldTemplate
+                        key={index}
+                        field={field}
+                        fieldIndex={index}/>
+                ))}
             </div>
         </div>
     );

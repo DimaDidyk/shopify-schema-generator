@@ -1,11 +1,12 @@
 import Setting from '../Setting';
 
-const CheckboxSettings = [
-    new Setting('id', 'text', true, "test id"),
-    new Setting('label', 'text', true, "label"),
-    new Setting('default', 'text', false, "default"),
-    new Setting('info', 'text', false, "test info"),
-    new Setting('placeholder', 'text', false, "placeholder")
-];
-
-export default CheckboxSettings;
+export default class CheckboxSettings{
+    constructor() {
+        this.settings = [
+            new Setting('id', 'text', true, "id"),
+            new Setting('label', 'text', true, "Text"),
+            new Setting('default', false),
+            new Setting('info', 'text'),
+        ]
+    }
+}

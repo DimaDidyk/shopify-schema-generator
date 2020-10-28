@@ -1,7 +1,15 @@
+import DefaultSettings from './Settings/DefaultSettings';
 import TextSettings from './Settings/basic/Text';
 import TextareaSettings from './Settings/basic/Textarea';
 import ImagePickerSettings from './Settings/basic/ImagePicker';
-
+import RadioSettings from './Settings/basic/Radio';
+import SelectSettings from './Settings/basic/Select';
+import CheckboxSettings from './Settings/basic/Checkbox';
+import RangeSettings from './Settings/basic/Range';
+import ColorSettings from './Settings/specialized/Color';
+import FontPickerSettings from './Settings/specialized/FontPicker';
+import RichTextSettings from './Settings/specialized/RichText';
+import HTMLSettings from './Settings/specialized/HTML';
 
 export default class FieldsController{
     constructor() {
@@ -9,22 +17,22 @@ export default class FieldsController{
             'text': () => { return new TextSettings() },
             'textarea': () => { return new TextareaSettings() },
             'image_picker': () => { return new ImagePickerSettings() },
-            'radio': () => { return new TextareaSettings() },
-            'select': () => { return new TextareaSettings() },
-            'checkbox': () => { return new TextareaSettings() },
-            'range': () => { return new TextareaSettings() },
-            'color': () => { return new TextareaSettings() },
-            'font_picker': () => { return new TextareaSettings() },
-            'collection': () => { return new TextareaSettings() },
-            'product': () => { return new TextareaSettings() },
-            'blog': () => { return new TextareaSettings() },
-            'page': () => { return new TextareaSettings() },
-            'link_list': () => { return new TextareaSettings() },
-            'url': () => { return new TextareaSettings() },
+            'radio': () => { return new RadioSettings() },
+            'select': () => { return new SelectSettings() },
+            'checkbox': () => { return new CheckboxSettings() },
+            'range': () => { return new RangeSettings() },
+            'color': () => { return new ColorSettings() },
+            'font_picker': () => { return new FontPickerSettings() },
+            'collection': () => { return new DefaultSettings() },
+            'product': () => { return new DefaultSettings() },
+            'blog': () => { return new DefaultSettings() },
+            'page': () => { return new DefaultSettings() },
+            'link_list': () => { return new DefaultSettings() },
+            'url': () => { return new DefaultSettings() },
             'video_url': () => { return new TextareaSettings() },
-            'richtext': () => { return new TextareaSettings() },
-            'html': () => { return new TextareaSettings() },
-            'article': () => { return new TextareaSettings() }
+            'richtext': () => { return new RichTextSettings() },
+            'html': () => { return new HTMLSettings() },
+            'article': () => { return new DefaultSettings() }
         }
     }
 

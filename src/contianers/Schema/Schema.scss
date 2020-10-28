@@ -1,6 +1,12 @@
+.Schema{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 textarea{
   width: 100%;
-  height: 600px;
+  flex: auto;
   background: transparent;
   padding: 10px;
   box-sizing: border-box;

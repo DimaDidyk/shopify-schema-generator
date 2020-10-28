@@ -1,9 +1,9 @@
+import React from 'react';
 /**
  * Setting
  */
 export default class Setting{
     /**
-     *
      * @param name {string}
      * @param type {string}
      * @param required {boolean}
@@ -16,7 +16,7 @@ export default class Setting{
     }
 
     /**
-     * set Value
+     * set setting Value
      * @param value {string}
      */
     setValue(value){
@@ -24,11 +24,4 @@ export default class Setting{
         return true;
     }
 
-    /**
-     * get Setting Value
-     * @return {null|string}
-     */
-    getValue(){
-        return this.value;
-    }
 }

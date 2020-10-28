@@ -1,11 +1,13 @@
 import Setting from '../Setting';
 
-const SelectSettings = [
-    new Setting('id', 'text', true, "textarea"),
-    new Setting('label', 'text', true, "textarea"),
-    new Setting('default', 'textarea', false, "default textarea"),
-    new Setting('info', 'text', false, "test info"),
-    new Setting('placeholder', 'text', false, "placeholder")
-];
-
-export default SelectSettings;
+export default class SelectSettings{
+    constructor() {
+        this.settings = [
+            new Setting('id', 'text', true, "id"),
+            new Setting('label', 'text', true, "Text"),
+            new Setting('options', 'select', true, []),
+            new Setting('default', 'text'),
+            new Setting('info', 'text'),
+        ]
+    }
+}

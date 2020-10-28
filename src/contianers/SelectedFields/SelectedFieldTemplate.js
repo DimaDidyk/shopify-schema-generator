@@ -1,45 +1,43 @@
 import React, {useRef} from 'react';
 import {connect} from 'react-redux';
-
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import TextField from '@material-ui/core/TextField';
 
 function SelectedFieldTemplate(props){
-    const settingsRef = useRef();
-
-    const onToggleSettings = () => {
-        if (settingsRef.current.style.display === "none") {
-            settingsRef.current.style.display = "block";
-        } else {
-            settingsRef.current.style.display = "none";
-        }
-    }
-
     return(
         <div className="field-item-wrap">
-            <div className="field-item shadow">
-                <div className="remove" onClick={ () => {
-                    props.removeField(props.fieldIndex);
-                }}>remove</div>
-                <p onClick={onToggleSettings}>{props.field.type}</p>
-                <div className="field-settings" ref={settingsRef} style={{display: 'none'}}>
-                    { props.field.settings && props.field.settings.map( (setting, index) => {
-                        return(
-                            <div key={index} >
-                                <label htmlFor="{setting.name}">{setting.name}</label>
-                                <input
-                                    key={index}
-                                    name={setting.name}
-                                    type={setting.type}
-                                    required={setting.required}
-                                    onChange={ event => {
-                                        props.updateSettingValue(event.target.value, index, props.fieldIndex);
-                                    }}
-                                    defaultValue={setting.value}
-                                    placeholder={setting.name}/>
-                            </div>
-                        )
-                    })}
-                </div>
-            </div>
+
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                >
+                    <span>{props.field.type}</span>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <div>
+                        <div className="remove" onClick={ () => {
+                            props.removeField(props.fieldIndex);
+                        }}>remove</div>
+
+                        { props.field.settings && props.field.settings.map( (setting, index) => {
+                            return(
+                                <div key={index}>
+                                    <TextField
+                                        label={setting.name}
+                                        onChange={event => {
+                                            props.updateSettingValue(event.target.value, index, props.fieldIndex);
+                                        }} />
+                                </div>
+                            )
+                        })}
+                    </div>
+                </AccordionDetails>
+            </Accordion>
         </div>
     );
 }
