@@ -1,9 +1,10 @@
 import React, {useRef} from 'react';
 import {connect} from 'react-redux';
 
-function SelectedFieldTemplate(props){
 
+function SelectedFieldTemplate(props){
     const settingsRef = useRef();
+
     const onToggleSettings = () => {
         if (settingsRef.current.style.display === "none") {
             settingsRef.current.style.display = "block";
@@ -14,13 +15,13 @@ function SelectedFieldTemplate(props){
 
     return(
         <div className="field-item-wrap">
-            <div className="field-item">
+            <div className="field-item shadow">
+                <div className="remove" onClick={ () => props.removeField(props.fieldIndex) }>remove</div>
                 <p onClick={onToggleSettings}>{props.field.type}</p>
                 <div className="field-settings" ref={settingsRef} style={{display: 'none'}}>
-
                     { props.field.settings && props.field.settings.map( (setting, index) => {
                         return(
-                            <div key={index}>
+                            <div key={index} >
                                 <label htmlFor="{setting.name}">{setting.name}</label>
                                 <input
                                     key={index}
@@ -30,14 +31,12 @@ function SelectedFieldTemplate(props){
                                     onChange={ event => {
                                         props.updateSettingValue(event.target.value, index, props.fieldIndex);
                                         props.updateSchema();
-                                        console.log(event);
                                     }}
                                     defaultValue={setting.value}
                                     placeholder={setting.name}/>
                             </div>
                         )
                     })}
-
                 </div>
             </div>
         </div>
@@ -46,6 +45,7 @@ function SelectedFieldTemplate(props){
 
 const mapDispatchToProps = dispatch => {
     return {
+        removeField: (fieldIndex) => dispatch({type: 'REMOVE_FIELD', fieldIndex}),
         updateSchema: () => dispatch({type: 'UPDATE_SCHEMA'}),
         updateSettingValue: (value, index, fieldIndex) => dispatch({type: 'UPDATE_SETTING_VALUE', value, index, fieldIndex})
     }

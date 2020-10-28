@@ -1,5 +1,5 @@
 import Setting from './Settings/Setting';
-import SettingsStructure from './Settings/SettingsStructure';
+import SettingsStructure from './FieldsController';
 
 /**
  *  Field

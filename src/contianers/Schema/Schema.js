@@ -3,8 +3,6 @@ import './Schema.scss';
 import {connect} from 'react-redux';
 
 const Schema = props => {
-    console.log(props.schema);
-
     return (
         <div className="Schema">
             <h3 className="heading">Schema</h3>

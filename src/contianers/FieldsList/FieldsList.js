@@ -1,13 +1,13 @@
 import React from 'react';
 import Field from './Field';
-import {connect} from 'react-redux';
+import {FieldsControllerMain} from '../../redux/reducers/fields';
 
-function FieldsList(props) {
+function FieldsList() {
     return (
         <div className="FieldsList">
             <h3 className="heading">Fields</h3>
             <div className="all-field-list">
-                { props.allFields && props.allFields.map( (field, index) => (
+                { FieldsControllerMain && FieldsControllerMain.getAllFields().map( (field, index) => (
                     <div key={index}>
                         <Field field={field}/>
                     </div>
@@ -17,10 +17,5 @@ function FieldsList(props) {
     );
 }
 
-const mapStateToProps = state => {
-    return{
-        allFields: state.fields.allFields
-    }
-}
 
-export default connect(mapStateToProps)(FieldsList);
+export default FieldsList;

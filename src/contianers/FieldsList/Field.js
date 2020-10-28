@@ -16,7 +16,7 @@ function Field(props){
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addField: (fieldHandle) => dispatch({type: 'ADD_FIELD', fieldHandle}),
+        addField: (fieldType) => dispatch({type: 'ADD_FIELD', fieldType}),
         updateSchema: () => dispatch({type: 'UPDATE_SCHEMA'})
     }
 }

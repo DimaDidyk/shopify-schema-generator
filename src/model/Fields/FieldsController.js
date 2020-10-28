@@ -1,12 +1,11 @@
-import TextSettings from './basic/Text';
-import TextareaSettings from './basic/Textarea';
-import ImagePickerSettings from './basic/ImagePicker';
+import TextSettings from './Settings/basic/Text';
+import TextareaSettings from './Settings/basic/Textarea';
+import ImagePickerSettings from './Settings/basic/ImagePicker';
 
-export default class SettingsStructure{
-    constructor(type) {
-        this.type = type;
+
+export default class FieldsController{
+    constructor() {
         this.settingsStructures = {
-            'default': () => { return new TextSettings() },
             'text': () => { return new TextSettings() },
             'textarea': () => { return new TextareaSettings() },
             'image_picker': () => { return new ImagePickerSettings() },
@@ -30,11 +29,19 @@ export default class SettingsStructure{
     }
 
     /**
+     * Get All Fields
+     * @return {string[]}
+     */
+    getAllFields(){
+        return Object.keys(this.settingsStructures);
+    }
+
+    /**
      * Get Settings Array
      * @return {[Setting, Setting, Setting, Setting, Setting]}
      */
-    getSettings(){
-        let settingsCreator = this.settingsStructures[this.type] || this.settingsStructures['default'];
+    getSettingsByFieldType(type){
+        let settingsCreator = this.settingsStructures[type] || this.settingsStructures['default'];
         return settingsCreator().settings;
     }
 }
