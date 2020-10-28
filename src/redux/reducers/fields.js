@@ -1,5 +1,5 @@
 import Field from '../../model/Fields/Field';
-import SchemaGenerator from '../../contianers/Schema/SchemaGenerator';
+import SettingsStructure from '../../model/Fields/Settings/SettingsStructure';
 
 const initialState = {
     allFields: [
@@ -39,7 +39,8 @@ const initialState = {
 export default function (state= initialState, action){
     switch (action.type) {
         case 'ADD_FIELD':
-            state.selectedFields.push(new Field(action.fieldHandle));
+            let settings = new SettingsStructure(action.fieldHandle);
+            state.selectedFields.push(new Field(action.fieldHandle, settings.getSettings()));
             return { ...state, selectedFields: [...state.selectedFields] }
         case 'SWITCH_SELECTED_FIELDS':
             let selectedFieldsTemp = [...state.selectedFields];

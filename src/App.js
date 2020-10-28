@@ -10,20 +10,14 @@ export default function App() {
         <div>
             <div className="App">
                 <div className="container">
-                    <div className="col col-3">
-                        <div className="fields-list">
-                            <FieldsList/>
-                        </div>
+                    <div className="fields-list">
+                        <FieldsList/>
                     </div>
-                    <div className="col col-3">
-                        <div className="selected-fields">
-                            <SelectedFields/>
-                        </div>
+                    <div className="selected-fields">
+                        <SelectedFields/>
                     </div>
-                    <div className="col col-3">
-                        <div className="generated-schema">
-                            <Schema/>
-                        </div>
+                    <div className="generated-schema">
+                        <Schema/>
                     </div>
                 </div>
             </div>

@@ -1,10 +1,14 @@
 /**
     Colors
  */
-$color1: #5f9ea0;
+$color1: rgb(32, 34, 35);
 $color2: #4a4a4a;
-$background1: #eee;
+$background1: #f4f6f8;
+$shadow: 0 1px 3px 0 rgba(64,64,64,.24);
 
+.shadow{
+  box-shadow: 0 1px 3px 0 rgba(64,64,64,.24);
+}
 body{
   font-family: 'Roboto', sans-serif;
   background: $background1;
@@ -15,6 +19,10 @@ body{
 .heading{
   color: $color1;
   cursor: default;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 input{

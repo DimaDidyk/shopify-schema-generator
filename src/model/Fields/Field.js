@@ -1,19 +1,20 @@
-import Setting from './Setting';
+import Setting from './Settings/Setting';
+import SettingsStructure from './Settings/SettingsStructure';
 
 /**
  *  Field
  */
 export default class Field{
 
-    constructor(type) {
+    /**
+     *
+     * @param type {string}
+     * @param settings {Array<Setting>}
+     */
+    constructor(type, settings) {
         this.type = type;
-        this.settings = [
-            new Setting('id', 'text', true, "test id"),
-            new Setting('label', 'text', true, "label"),
-            new Setting('default', 'text', false, "default"),
-            new Setting('info', 'text', false, "test info"),
-            new Setting('placeholder', 'text', false, "placeholder")
-        ];
+        // let settings = SettingsStructure[type] || SettingsStructure['default'];
+        this.settings = settings;
         this.additionalSettings = [];
     }
 
@@ -22,10 +23,15 @@ export default class Field{
      * @return {object}
      */
     getSettingsForJSON(){
-        let settings = {};
+        let settingsToSchema = {type: this.type};
         for (let setting of this.settings) {
-            settings[setting.name] = setting.value;
+            if( setting.value !== "" ){
+                settingsToSchema[setting.name] = setting.value;
+            }
+            if( setting.required && setting.value === "" ){
+                settingsToSchema[setting.name] = "FIELD IS REQUIRED";
+            }
         }
-        return settings;
+        return settingsToSchema;
     }
 }

@@ -8,9 +8,7 @@ function FieldsList(props) {
             <h3 className="heading">Fields</h3>
             <div className="all-field-list">
                 { props.allFields && props.allFields.map( (field, index) => (
-                    <div
-                        key={index}
-                        onClick={ () => props.addField(field) }>
+                    <div key={index}>
                         <Field field={field}/>
                     </div>
                 ))}
@@ -25,10 +23,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addField: (fieldHandle) => dispatch({type: 'ADD_FIELD', fieldHandle})
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FieldsList);
+export default connect(mapStateToProps)(FieldsList);

@@ -21,6 +21,7 @@ function SelectedFieldTemplate(props){
                     { props.field.settings && props.field.settings.map( (setting, index) => {
                         return(
                             <div key={index}>
+                                <label htmlFor="{setting.name}">{setting.name}</label>
                                 <input
                                     key={index}
                                     name={setting.name}
@@ -29,6 +30,7 @@ function SelectedFieldTemplate(props){
                                     onChange={ event => {
                                         props.updateSettingValue(event.target.value, index, props.fieldIndex);
                                         props.updateSchema();
+                                        console.log(event);
                                     }}
                                     defaultValue={setting.value}
                                     placeholder={setting.name}/>
