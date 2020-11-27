@@ -17,5 +17,4 @@ function FieldsList() {
     );
 }
 
-
 export default FieldsList;

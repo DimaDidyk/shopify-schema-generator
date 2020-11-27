@@ -5,6 +5,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import TextField from '@material-ui/core/TextField';
+import {Button} from '@material-ui/core';
 
 function SelectedFieldTemplate(props){
     return(
@@ -18,23 +19,34 @@ function SelectedFieldTemplate(props){
                 >
                     <span>{props.field.type}</span>
                 </AccordionSummary>
-                <AccordionDetails>
-                    <div>
-                        <div className="remove" onClick={ () => {
-                            props.removeField(props.fieldIndex);
-                        }}>remove</div>
-
+                <AccordionDetails style={{ flexWrap: 'wrap' }}>
+                    <div style={{ width: '100%' }}>
                         { props.field.settings && props.field.settings.map( (setting, index) => {
                             return(
-                                <div key={index}>
-                                    <TextField
-                                        label={setting.name}
-                                        onChange={event => {
-                                            props.updateSettingValue(event.target.value, index, props.fieldIndex);
-                                        }} />
-                                </div>
+                                <TextField
+                                    key={index}
+                                    style={{
+                                        width: '100%',
+                                        marginTop: '10px'
+                                    }}
+                                    label={setting.name}
+                                    onChange={event => {
+                                        props.updateSettingValue(event.target.value, index, props.fieldIndex);
+                                    }}/>
                             )
                         })}
+                    </div>
+
+                    <div>
+                        <Button variant="contained"
+                                color="secondary"
+                                style={{
+                                    marginTop: '20px'
+                                }}
+                                onClick={() => {
+                                    props.removeField(props.fieldIndex);
+                                }}
+                        >Remove</Button>
                     </div>
                 </AccordionDetails>
             </Accordion>
