@@ -20,7 +20,7 @@ const Schema = props => {
             </div>
             <br/>
 
-            <textarea name="schema" id="schema" cols="30" rows="10"
+            <textarea name="schema" id="schema" cols="30" rows="10" className="custom-scrollbar"
                 value={ JSON.stringify(props.schema, null, 4) }
                 onChange={ ()=> console.log('onchange') }
             />

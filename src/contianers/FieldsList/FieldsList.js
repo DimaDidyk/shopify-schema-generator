@@ -6,7 +6,7 @@ function FieldsList() {
     return (
         <div className="FieldsList">
             <h3 className="heading">Fields</h3>
-            <div className="all-field-list">
+            <div className="all-field-list custom-scrollbar">
                 { FieldsControllerMain && FieldsControllerMain.getAllFields().map( (field, index) => (
                     <div key={index}>
                         <Field field={field}/>

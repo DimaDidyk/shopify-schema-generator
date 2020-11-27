@@ -54,13 +54,13 @@ export default function App() {
 
             <div className="App">
                 <div className="container">
-                    <div className="fields-list">
+                    <div className="fields-list custom-scrollbar">
                         <FieldsList/>
                     </div>
-                    <div className="selected-fields">
+                    <div className="selected-fields custom-scrollbar">
                         <SelectedFields/>
                     </div>
-                    <div className="generated-schema">
+                    <div className="generated-schema custom-scrollbar">
                         <Schema/>
                     </div>
                 </div>

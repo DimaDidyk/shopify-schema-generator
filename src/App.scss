@@ -1,3 +1,46 @@
+.custom-scrollbar{
+  &::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+
+  &::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #494b4c;
+    border: 0 none #ffffff;
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    //background: #ffffff;
+  }
+
+  &::-webkit-scrollbar-thumb:active {
+    //background: #000;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #d2d2d2;
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-track:hover {
+    //background: #000;
+  }
+
+  &::-webkit-scrollbar-track:active {
+    //background: #000;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
 .dragNdrop{
   height: 600px;
   .lists{
@@ -65,7 +108,7 @@
   .selected-fields{
     width: 400px;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 25px;
     box-sizing: border-box;
   }
   .generated-schema{

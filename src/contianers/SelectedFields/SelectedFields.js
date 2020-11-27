@@ -10,9 +10,18 @@ function SelectedFields(props) {
     }
 
     return (
-        <div className="SelectedFieldsContainer">
+        <div className="SelectedFieldsContainer" style={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100vh'
+        }}>
             <h3 className="heading">Selected Fields</h3>
-            <div className="SelectedFields">
+            <div className="SelectedFields custom-scrollbar" style={{
+                flex: 'auto',
+                overflowY: 'auto',
+                paddingBottom: '30px',
+                paddingRight: '25px'
+            }}>
                 { props.selectedFields && props.selectedFields.map( (field, index) => (
                     <SelectedFieldTemplate
                         key={index}
