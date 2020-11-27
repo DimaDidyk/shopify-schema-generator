@@ -66,9 +66,9 @@ export default function (state= initialState, action){
             if( selectedFields.length !== res.length ){
                 res.push( moveElement );
             }
-
+            selectedFields = res;
             updateSchema();
-            return { selectedFields: [...res], schema: {...schema} }
+            return { selectedFields: [...selectedFields], schema: {...schema} }
         case 'UPDATE_SETTING_VALUE':
             selectedFields[action.fieldIndex].settings[action.index].setValue(action.value)
             updateSchema();
