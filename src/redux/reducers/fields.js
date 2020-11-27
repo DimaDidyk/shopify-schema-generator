@@ -1,24 +1,37 @@
-import Field from '../../model/Fields/Field';
 import FieldsController from '../../model/Fields/FieldsController';
 
 const initialState = {
     selectedFields: [],
     schema: {
         name: "Section name",
-        max_blocks: 10,
+        // max_blocks: 10,
         settings: [
 
         ],
         blocks:[
+            {
+                type: 'block',
+                name: "Block",
+                settings: [
 
+                ],
+            }
+        ],
+        presets: [
+            {
+                name: "Section name"
+            }
         ]
     }
 }
+// Invalid block 'item': setting with id="stars" default must be a number, Invalid block 'item': setting with id="stars" min must be a number, Invalid block 'item': setting with id="
+// stars" max must be a number, and Invalid block 'item': setting with id="stars" step must be a number
 
 export const FieldsControllerMain = new FieldsController();
 export default function (state= initialState, action){
     let selectedFields = [...state.selectedFields];
     let schema = state.schema;
+
     const updateSchema = () => {
         schema.settings = [];
         for (let field of selectedFields) {
@@ -28,8 +41,7 @@ export default function (state= initialState, action){
 
     switch (action.type) {
         case 'ADD_FIELD':
-            let settings = FieldsControllerMain.getSettingsByFieldType(action.fieldType);
-            selectedFields.push( new Field(action.fieldType, settings ));
+            selectedFields.push( FieldsControllerMain.getFieldByType(action.fieldType) );
             updateSchema();
             return { selectedFields: [...selectedFields], schema: {...schema} }
         case 'REMOVE_FIELD':
@@ -47,6 +59,7 @@ export default function (state= initialState, action){
             return { ...state, schema: {...schema}  }
         case 'SET_SCHEMA_TITLE':
             schema.name = action.schemaName;
+            schema.presets[0].name = action.schemaName;
             updateSchema();
             return { ...state, schema: {...schema}  }
         default:

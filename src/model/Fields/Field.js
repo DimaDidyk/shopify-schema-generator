@@ -1,21 +1,16 @@
 import Setting from './Settings/Setting';
-import SettingsStructure from './FieldsController';
 
 /**
  *  Field
  */
 export default class Field{
 
-    /**
-     *
-     * @param type {string}
-     * @param settings {Array<Setting>}
-     */
-    constructor(type, settings) {
-        this.type = type;
-        // let settings = SettingsStructure[type] || SettingsStructure['default'];
-        this.settings = settings;
-        this.additionalSettings = [];
+    constructor() {
+        /**
+         *
+         * @type {Setting[]}
+         */
+        this.settings = [];
     }
 
     /**

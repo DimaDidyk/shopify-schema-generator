@@ -1,7 +1,10 @@
 import Setting from '../Setting';
+import Field from '../../Field';
 
-export default class RichTextSettings{
+export default class RichTextField extends Field{
     constructor() {
+        super();
+        this.type = 'richtext';
         this.settings = [
             new Setting('id', 'text', true, 'column_richtext'),
             new Setting('label', 'text', true, 'Text'),

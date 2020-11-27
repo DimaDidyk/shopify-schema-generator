@@ -1,7 +1,10 @@
 import Setting from '../Setting';
+import Field from '../../Field';
 
-export default class RadioSettings{
+export default class RadioField extends Field{
     constructor() {
+        super();
+        this.type = 'radio';
         this.settings = [
             new Setting('id', 'text', true, "test id"),
             new Setting('label', 'text', true, "label"),
