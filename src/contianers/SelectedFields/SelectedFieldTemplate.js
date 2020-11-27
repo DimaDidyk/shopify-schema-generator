@@ -9,8 +9,7 @@ import {Button} from '@material-ui/core';
 
 function SelectedFieldTemplate(props){
     return(
-        <div className="field-item-wrap">
-
+        <div className="field-item-wrap" style={{ marginBottom: '0' }}>
             <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}

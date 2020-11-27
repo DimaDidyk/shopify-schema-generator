@@ -20,10 +20,10 @@ export default class Setting{
 
     /**
      * set setting Value
-     * @param value {string}
+     * @param value {any}
      */
     setValue(value){
-        this.value = value;
+        this.value = this.type === Setting.TYPE_NUMBER ? Number(value) : value;
         return true;
     }
 

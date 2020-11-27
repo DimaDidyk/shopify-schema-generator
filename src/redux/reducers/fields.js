@@ -24,8 +24,6 @@ const initialState = {
         ]
     }
 }
-// Invalid block 'item': setting with id="stars" default must be a number, Invalid block 'item': setting with id="stars" min must be a number, Invalid block 'item': setting with id="
-// stars" max must be a number, and Invalid block 'item': setting with id="stars" step must be a number
 
 export const FieldsControllerMain = new FieldsController();
 export default function (state= initialState, action){
@@ -49,7 +47,28 @@ export default function (state= initialState, action){
             updateSchema();
             return { selectedFields: [...selectedFields], schema: {...schema} }
         case 'SWITCH_SELECTED_FIELDS':
-            return { selectedFields: [...selectedFields], schema: {...schema} }
+            console.log('swap', action.from, action.to);
+            let moveElement = selectedFields[action.from];
+            let res = [];
+
+            for (let i = 0; i < selectedFields.length; i++) {
+                if( i !== action.from ){
+                    if( i === action.to ){
+                        res.push( moveElement );
+                        res.push( selectedFields[i] );
+                    }else{
+                        res.push( selectedFields[i] );
+                    }
+                }
+            }
+
+            // if move to end
+            if( selectedFields.length !== res.length ){
+                res.push( moveElement );
+            }
+
+            updateSchema();
+            return { selectedFields: [...res], schema: {...schema} }
         case 'UPDATE_SETTING_VALUE':
             selectedFields[action.fieldIndex].settings[action.index].setValue(action.value)
             updateSchema();

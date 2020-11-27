@@ -40,7 +40,7 @@ export default class FieldsController{
 
     /**
      *
-     * @param fieldType
+     * @param type
      * @return {Field}
      */
     getFieldByType(type){
