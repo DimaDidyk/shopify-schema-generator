@@ -1,11 +1,13 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import TextField from '@material-ui/core/TextField';
-import {Button} from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
+import {FormControlLabel} from '@material-ui/core';
+import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 
 function SelectedFieldTemplate(props){
     return(
@@ -13,11 +15,40 @@ function SelectedFieldTemplate(props){
             <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
+                    draggable="true"
+                    from={props.from}
+                    onDragStart={ (event) => { props.onDragStartHandle(event); }}
+                    onDragEnd={ (event) => { props.onDragEndHandle(event) }}
                 >
-                    <span>{props.field.type}</span>
+
+                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',padding: '12px 0', margin: '-12px 0', width: '100%'}}>
+
+                        <DragIndicatorIcon
+                            style={{color: 'rgba(0, 0, 0, 0.54)', width: '18px', height: '18px'}}
+                        />
+
+                        <span>{props.field.type}</span>
+
+                        <FormControlLabel
+                            aria-label="Acknowledge"
+                            onClick={(event) => event.stopPropagation()}
+                            onFocus={(event) => event.stopPropagation()}
+                            control={
+                                <div>
+                                    <CloseIcon
+                                        style={{color: 'rgba(0, 0, 0, 0.54)', width: '18px', height: '18px'}}
+                                        onClick={() => {
+                                            props.removeField(props.fieldIndex);
+                                        }}/>
+                                </div>
+                            }
+                        />
+
+                    </div>
+
+
                 </AccordionSummary>
+
                 <AccordionDetails style={{ flexWrap: 'wrap' }}>
                     <div style={{ width: '100%' }}>
                         { props.field.settings && props.field.settings.map( (setting, index) => {
@@ -34,18 +65,6 @@ function SelectedFieldTemplate(props){
                                     }}/>
                             )
                         })}
-                    </div>
-
-                    <div>
-                        <Button variant="contained"
-                                color="secondary"
-                                style={{
-                                    marginTop: '20px'
-                                }}
-                                onClick={() => {
-                                    props.removeField(props.fieldIndex);
-                                }}
-                        >Remove</Button>
                     </div>
                 </AccordionDetails>
             </Accordion>

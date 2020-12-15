@@ -1,7 +1,6 @@
 import DefaultField from './Settings/DefaultField';
 import TextField from './Settings/basic/Text';
 import HTMLField from './Settings/specialized/HTML';
-import Field from './Field';
 import ImagePickerField from './Settings/basic/ImagePicker';
 import RichTextField from './Settings/specialized/RichText';
 import VideoUrlField from './Settings/specialized/VideoUrl';

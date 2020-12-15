@@ -5,7 +5,10 @@ import {connect} from 'react-redux';
 class SelectedFields extends React.Component{
     constructor(props) {
         super(props);
-        this.from = 0;
+
+        this.state = {
+            from: 0
+        }
     }
 
     /**
@@ -18,39 +21,45 @@ class SelectedFields extends React.Component{
     }
 
     onDragStartHandle(event){
-        event.target.style.opacity = .5;
-        this.from = Number( event.target.getAttribute('from') );
+        event.target.style.opacity = 1;
+        let newFrom = Number( event.target.getAttribute('from') );
+        this.setState(  {
+            from: newFrom
+        });
     }
 
     onDragEnterHandle(event){
+        event.target.style.opacity = 1;
+
         let to = Number( event.target.getAttribute('to') );
-        if( this.canBeMoved(this.from, to) ){
+        if( this.canBeMoved(this.state.from, to) ){
             if ( event.target.className === "dropZone" ) {
                 event.target.style.height = '50px';
             }
         }
     }
     onDragLeaveHandle(event){
+        event.target.style.opacity = 1;
+
         if ( event.target.className === "dropZone" ) {
             event.target.style.height = "20px";
         }
     }
     onDragEndHandle(event){
-        event.target.style.opacity = "";
+        event.target.style.opacity = 1;
         if ( event.target.className === "dropZone" ) {
             event.target.style.height = '20px';
         }
     }
 
     ondropHandle(event){
+        event.target.style.opacity = 1;
+
         event.preventDefault();
         let to = Number( event.target.getAttribute('to') );
         event.target.style.background = "";
-        if( this.canBeMoved(this.from, to) ){
-            // if( this.props.selectedFields.length === to ){
-            //     to = --to;
-            // }
-            this.props.swapFields(this.from, to);
+        if( this.canBeMoved(this.state.from, to) ){
+            this.props.swapFields(this.state.from, to);
         }
     }
 
@@ -88,17 +97,17 @@ class SelectedFields extends React.Component{
                              this.onDragEndHandle(event);
                              this.ondropHandle(event)
                          }}/>
+
                     { this.props.selectedFields && this.props.selectedFields.map( (field, index) => (
                         <div style={{width: '100%'}} key={index} className={'drag-wrapper'}>
 
-                            <div from={index}
-                                 draggable="true"
-                                 onDragStart ={(event) => { this.onDragStartHandle(event) }}
-                                 onDragEnd={(event) => { this.onDragEndHandle(event) }}>
-                                <SelectedFieldTemplate
-                                    field={field}
-                                    fieldIndex={index}/>
-                            </div>
+                            <SelectedFieldTemplate
+                                from={index}
+                                onDragStartHandle={ this.onDragStartHandle.bind(this) }
+                                onDragEndHandle={ this.onDragEndHandle.bind(this) }
+
+                                field={field}
+                                fieldIndex={index}/>
 
                             <div className="dropZone"
                                  style={this.styles.dropZone}

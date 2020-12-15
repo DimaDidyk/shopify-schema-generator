@@ -1,5 +1,3 @@
-import Setting from './Settings/Setting';
-
 /**
  *  Field
  */
@@ -11,6 +9,14 @@ export default class Field{
          * @type {Setting[]}
          */
         this.settings = [];
+    }
+
+    getIdField(){
+        for (const setting of this.settings) {
+            if( setting.name === 'id' ){
+                return setting.value;
+            }
+        }
     }
 
     /**
