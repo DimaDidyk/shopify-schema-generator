@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/shopify-schema-generator/static/css/main.c6513e3a.chunk.css",
-    "main.js": "/shopify-schema-generator/static/js/main.d6dd2ecc.chunk.js",
-    "main.js.map": "/shopify-schema-generator/static/js/main.d6dd2ecc.chunk.js.map",
+    "main.css": "/shopify-schema-generator/static/css/main.f9f0d2aa.chunk.css",
+    "main.js": "/shopify-schema-generator/static/js/main.5b9ff91c.chunk.js",
+    "main.js.map": "/shopify-schema-generator/static/js/main.5b9ff91c.chunk.js.map",
     "runtime-main.js": "/shopify-schema-generator/static/js/runtime-main.96d7065b.js",
     "runtime-main.js.map": "/shopify-schema-generator/static/js/runtime-main.96d7065b.js.map",
-    "static/js/2.e5418591.chunk.js": "/shopify-schema-generator/static/js/2.e5418591.chunk.js",
-    "static/js/2.e5418591.chunk.js.map": "/shopify-schema-generator/static/js/2.e5418591.chunk.js.map",
+    "static/js/2.becd3e53.chunk.js": "/shopify-schema-generator/static/js/2.becd3e53.chunk.js",
+    "static/js/2.becd3e53.chunk.js.map": "/shopify-schema-generator/static/js/2.becd3e53.chunk.js.map",
     "index.html": "/shopify-schema-generator/index.html",
-    "precache-manifest.b0b8156146d6c63ae1c93c50f1502d5d.js": "/shopify-schema-generator/precache-manifest.b0b8156146d6c63ae1c93c50f1502d5d.js",
+    "precache-manifest.f838b62b6d4462ab239f469093137383.js": "/shopify-schema-generator/precache-manifest.f838b62b6d4462ab239f469093137383.js",
     "service-worker.js": "/shopify-schema-generator/service-worker.js",
-    "static/css/main.c6513e3a.chunk.css.map": "/shopify-schema-generator/static/css/main.c6513e3a.chunk.css.map",
-    "static/js/2.e5418591.chunk.js.LICENSE.txt": "/shopify-schema-generator/static/js/2.e5418591.chunk.js.LICENSE.txt"
+    "static/css/main.f9f0d2aa.chunk.css.map": "/shopify-schema-generator/static/css/main.f9f0d2aa.chunk.css.map",
+    "static/js/2.becd3e53.chunk.js.LICENSE.txt": "/shopify-schema-generator/static/js/2.becd3e53.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.96d7065b.js",
-    "static/js/2.e5418591.chunk.js",
-    "static/css/main.c6513e3a.chunk.css",
-    "static/js/main.d6dd2ecc.chunk.js"
+    "static/js/2.becd3e53.chunk.js",
+    "static/css/main.f9f0d2aa.chunk.css",
+    "static/js/main.5b9ff91c.chunk.js"
   ]
 }
